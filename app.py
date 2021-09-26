@@ -13,7 +13,11 @@ def does_text_lie_inside_rectangle(rectangle_position, text_position) :
     r_x0, r_y0, r_x2, r_y2 = rectangle_position
     t_x0, t_y0, t_x2, t_y2 = text_position
 
-    if ((t_x0 > r_x0) and (t_y0 < r_y0) and (t_x2 < r_x2) and (t_y2 > r_y2)) :
+    """
+    If the Text Lies inside the Rectange, Then its bottom-left coordinates will be greater than the rectangle's bottom-left coordinates and
+    Its top-left coordinates will be less than the rectangle's top-left coordinates.
+    """
+    if (((t_x0 > r_x0) and (t_y0 > r_y0)) and ((t_x2 < r_x2) and (t_y2 < r_y2))) :
         return True
     else :
         return False
@@ -23,7 +27,7 @@ def does_text_lie_inside_rectangle(rectangle_position, text_position) :
 def get_text_inside_rectange(file_name, rectangle_position) :
 
     texts = []
-    basepath = "C:\\Users\\dheeraj.maddukuri\\Downloads\\csvs\csvs\\"
+    basepath = ""
     file_path = os.path.join(basepath, file_name)
     if (os.path.exists(file_path)) :
         with open(file_path, "r") as csv_file :
